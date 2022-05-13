@@ -61,6 +61,9 @@ roman_mapping = {
   }
 
 def romanHash(hash)
-    
+    if hash[1]
+        return
+    else
+        romanHash(hash) 
 
 end
