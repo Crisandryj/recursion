@@ -18,7 +18,11 @@ def collatz(n)
 end 
  
 def palindrome(string)
-    
+     if string.length == 1 || string.length == 0
+        true
+     else
+        if string[0 == string[-1]
 
 end 
 
+palindrome(madam)
