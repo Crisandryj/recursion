@@ -19,10 +19,16 @@ end
  
 def palindrome(string)
      if string.length == 1 || string.length == 0
-        true
+        true 
+        p "yes"
      else
-        if string[0 == string[-1]
-
+        if string[0] == string[-1]
+            palindrome(string[1..-2])
+        else
+            false
+            p "no"
+        end
+    end
 end 
 
-palindrome(madam)
+palindrome("mada")
