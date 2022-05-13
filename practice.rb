@@ -31,4 +31,13 @@ def palindrome(string)
     end
 end 
 
-palindrome("mada")
+def bottles(n)
+    if n == 0
+        return
+    else
+       p "#{n} bottles of beer on the wall"
+        bottles(n-1)
+    end
+end
+
+bottles(5)
