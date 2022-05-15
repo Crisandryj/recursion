@@ -59,12 +59,14 @@
 def fibs(n)
 array = [0,1]
     array.each_with_index do |num,index| 
-       if index < n
+       if index < n - 2
          array << (num + array[index+1])
        end
     end
    p array
 end
 
-fibs(8)
+def fibs_rec
+
+end 
 
