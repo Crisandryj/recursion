@@ -68,8 +68,15 @@ end
 
 
 def fibs_rec(n)
-    
-
+    if n == 0 
+        return [0]
+    elsif n == 1
+        return [0,1]
+    else
+        array = fibs_rec(n-1)
+        array << array[n-1] + array[n-2]
+    end
+    array
 end 
 
 
