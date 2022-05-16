@@ -67,14 +67,10 @@ array = [0,1]
 end
 
 
-def fibs_rec(n,array = [])
-    Array(0..n).each do |num|
-        if num < 2 
-            array << num
-        else
-            array << fibs_rec(num-1) + fibs_rec(num-2)
-        end 
-    end
+def fibs_rec(n)
+    
+
 end 
+
 
 p fibs_rec(8)
