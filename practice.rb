@@ -1,7 +1,7 @@
 # def fact(n)
 #     if n == 0
 #         return 1
-#     end 
+#     end
 #     n * fact(n-1)
 # end
 
@@ -15,20 +15,18 @@
 #         p "not a palindrome"
 #     end
 #     end
-# end 
+# end
 
 # def bottles(n)
-#     if n == 0 
+#     if n == 0
 #        p  "#{n} bottles of beer on the wall"
 #         return
 #     else
 #        p "#{n} bottles of beer on the wall"
 #         bottles(n-1)
 #     end
-        
-# end 
 
-
+# end
 
 # def fib(n)
 #     if n == 0
@@ -37,8 +35,8 @@
 #         1
 #     else
 #         fib(n-1) + fib(n-2)
-#     end 
-# end 
+#     end
+# end
 
 # roman_mapping = {
 #     1000 => "M",
@@ -57,27 +55,24 @@
 #   }
 
 def fibs(n)
-array = [0,1]
-    array.each_with_index do |num,index| 
-       if index < n - 2
-         array << (num + array[index+1])
-       end
-    end
-   p array
+  array = [0, 1]
+  array.each_with_index do |num, index|
+    array << (num + array[index + 1]) if index < n - 2
+  end
+  p array
 end
 
-
 def fibs_rec(n)
-    if n == 0 
-        return [0]
-    elsif n == 1
-        return [0,1]
-    else
-        array = fibs_rec(n-1)
-        array << array[n-1] + array[n-2]
-    end
-    array
-end 
+  if n == 0
+    return [0]
+  elsif n == 1
+    return [0, 1]
+  else
+    array = fibs_rec(n - 1)
+    array << array[n - 1] + array[n - 2]
+  end
 
+  array
+end
 
 p fibs_rec(8)
