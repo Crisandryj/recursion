@@ -77,23 +77,16 @@
 
 
 def merge_sort(a)
- if a.length < 2
-    smallest = nil
-    if smallest == nil
-        smallest = a[0]
-    elsif smallest < a[0]
-        a.unshift(a[0])
+    if a.length < 2
+        return 
     else
-        a << smallest
-    end
- else
-    left,right = a.each_slice( (a.size/2.0).round ).to_a
-    merge_sort(left)
-    merge_sort(right)
- end 
- 
+        
+        merge_sort(right)
+        merge_sort(left)
+        p a
+    end 
 end 
 
 
-array = [0,1,2,3]
-p merge_sort(array)
+array = [0,2]
+merge_sort(array)
