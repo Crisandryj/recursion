@@ -76,17 +76,33 @@
 # end
 
 
-def merge_sort(a)
+def merge_sort(a,array =[])
     if a.length < 2
-        return 
+        return
     else
-        
-        merge_sort(right)
+        middle_index = a.length/2
+        left = a.slice(0,middle_index)
+        p left
         merge_sort(left)
-        p a
+        small = nil
+        if small == nil
+            small = left[0]
+        end
+        if left[0] < small
+            small = left[0]
+        end 
+        if small < left[0]
+            array << small
+        else
+            array.unshift(left[0])
+        end
+  
     end 
+    p array
 end 
 
 
-array = [0,2]
-merge_sort(array)
+array = [0,2,1,3,4]
+p merge_sort(array)
+
+
