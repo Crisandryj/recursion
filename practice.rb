@@ -75,4 +75,16 @@ def fibs_rec(n)
   array
 end
 
-p fibs_rec(8)
+
+def merge_sort(array)
+ if array.length < 2
+    return array
+ else
+   merge_sort(array[0..2])
+ end 
+ 
+end 
+
+
+array = [0,1,2,3]
+merge_sort(array)
