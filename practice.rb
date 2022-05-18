@@ -79,29 +79,26 @@ def merge_sort(array, a = [])
   if array.length < 2
     return
   else
-    middle_index = array.length / 2
-    left = array.slice(0, middle_index)
-    right = array.slice(middle_index, array.length - middle_index)
-    merge_sort(left, a)
-    merge_sort(right, a)
-    left.each do |v|
-      right.each do |val|
-        if v > val
-          a << v
-          a << val
-        else
-          a << val
-          a << v
-        end
-      end
-    end
+    left,right = array.each_slice( (array.size/2.0).round ).to_a
+    merge(left,right)
   end
-
   p a
+end
+
+def merge(left,right)
+    left.each do |v|
+        right.each do |val|
+          if v < val
+            a.unshift(val)
+            a.unshift(v)
+          end
+        end
+    end
 end
 
 array = [4, 3, 2, 1]
 merge_sort(array)
+
 
 # if left[0] < right[0]
 #     a << right[0]
