@@ -78,25 +78,22 @@
 
 def merge_sort(array,a = [])
     if array.length < 2
-        return p array[0]
+        return 
     else
         middle_index = array.length/2 
-        merge_sort(array.slice(0,middle_index))
-        merge_sort(array.slice(middle_index,array.length-middle_index))
-        small = nil
-        if small == nil && array.length == 1
-            small = array[0]
-        end
-        if small != nil && array[0] < small
-            small = array[0]
-        end 
-        if small != nil && small < array[0]
-            a << small
+        left = array.slice(0,middle_index)
+        right = array.slice(middle_index,array.length-middle_index)
+            merge_sort(left)
+            merge_sort(right)
+        if left[0] < right[0]
+            a << right[0]
+            a.unshift(left[0])
         else
-            a.unshift(array[0])
+            a << left[0]
+            a.unshift(right[0])
         end
     end 
-     a
+     p a
 end 
 
 
