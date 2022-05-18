@@ -75,31 +75,38 @@
 #   array
 # end
 
-
-def merge_sort(array,a = [])
-    if array.length < 2
-        return 
-    else
-        middle_index = array.length/2 
-        left = array.slice(0,middle_index)
-        right = array.slice(middle_index,array.length-middle_index)
-            merge_sort(left)
-            merge_sort(right)
-        if left[0] < right[0]
-            a << right[0]
-            a.unshift(left[0])
+def merge_sort(array, a = [])
+  if array.length < 2
+    return
+  else
+    middle_index = array.length / 2
+    left = array.slice(0, middle_index)
+    right = array.slice(middle_index, array.length - middle_index)
+    merge_sort(left, a)
+    merge_sort(right, a)
+    left.each do |v|
+      right.each do |val|
+        if v > val
+          a << v
+          a << val
         else
-            a << left[0]
-            a.unshift(right[0])
+          a << val
+          a << v
         end
-    end 
-     p a
-end 
+      end
+    end
+  end
 
+  p a
+end
 
-array = [0,2,5,6,7,1,3,4]
+array = [4, 3, 2, 1]
 merge_sort(array)
 
-
-
-
+# if left[0] < right[0]
+#     a << right[0]
+#     a.unshift(left[0])
+# else
+#     a << left[0]
+#     a.unshift(right[0])
+# end
