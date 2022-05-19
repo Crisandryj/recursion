@@ -79,30 +79,32 @@ def merge_sort(array)
     if array.length < 2
         array
     else
-        mid = (array.length / 2)
-        left = merge_sort(array[0...mid])
+        mid = array.length / 2 
+        left = merge_sort(array[0...mid -1])
         right = merge_sort(array[mid...array.length])
-        merge(left,right)
+        merge(left, right)
     end 
 end
 
 def merge(left, right, array=[])
-    (left.length + right.length).times do 
-    if left.empty?
-        array << right.shift
-    elsif right.empty?
-        array << left.shift
-    else
-        num = left.first <=> right.first
-        if num == -1
-            array << left.shift 
-        elsif num == 1
+    (left.length + right.length).times do
+        if left.empty?
             array << right.shift
-        end 
-    end 
-end 
+        elsif right.empty?
+            array << left.shift
+        else
+            num = left <=> right
+            if num == -1
+                array << left.shift
+            else num == 1
+                array << right.shift
+            end 
+        end
+    end  
     array
 end 
+
+
 
 array = []
 
