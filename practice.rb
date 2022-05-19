@@ -75,25 +75,34 @@
 #   array
 # end
 
-def merge_sort(array, a = [])
-  if array.length < 2
-    return
+def merge_sort(array)
+  if array.size < 2
+    array
   else
-    left,right = array.each_slice( (array.size/2.0).round ).to_a
+    left = merge_sort(array[0...array.size/2])
+    right = merge_sort(array[array.size/2...array.size])
     merge(left,right)
   end
-  p a
 end
 
-def merge(left,right)
-    left.each do |v|
-        right.each do |val|
-          if v < val
-            a.unshift(val)
-            a.unshift(v)
-          end
-        end
+def merge(left,right,array = [])
+   (left.size + right.size).times do
+    if left.empty?
+        array << right.shift
+    elsif right.empty?
+        array << left.shift
+    else
+       num = left <=> right
+       if num == -1
+        array << right
+       elsif num == 1
+        array << left
+       else 
+        array << left
+       end
     end
+end 
+    p array
 end
 
 array = [4, 3, 2, 1]
