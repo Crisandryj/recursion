@@ -87,18 +87,18 @@ end
 
 def merge(left,right,array = [])
    (left.size + right.size).times do
-    if left.empty?
+    if  left.empty?
         array << right.shift
     elsif right.empty?
         array << left.shift
     else
-       num = left <=> right
+       num = right  <=> left
        if num == -1
-        array << right
+        array << right.shift
        elsif num == 1
-        array << left
+        array << left.shift
        else 
-        array << left
+        array << left.shift
        end
     end
 end 
