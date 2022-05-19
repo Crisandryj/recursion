@@ -76,42 +76,38 @@
 # end
 
 def merge_sort(array)
-  if array.size < 2
-    array
-  else
-    left = merge_sort(array[0...array.size / 2])
-    right = merge_sort(array[array.size / 2...array.size])
-    merge(left, right)
-  end
-end
-
-def merge(left, right, array = [])
-  (left.size + right.size).times do
-    if left.empty?
-      array << right.shift
-    elsif right.empty?
-      array << left.shift
+    if array.length < 2
+        array
     else
-      num = right <=> left
-      array << if num == -1
-                 right.shift
-               elsif num == 1
-                 left.shift
-               else
-                 left.shift
-               end
-    end
-  end
-  p array
+        mid = (array.length / 2)
+        left = merge_sort(array[0...mid])
+        right = merge_sort(array[mid...array.length])
+        merge(left,right)
+    end 
 end
 
-array = [4, 3, 2, 1]
-merge_sort(array)
+def merge(left, right, array=[])
+    (left.length + right.length).times do 
+    if left.empty?
+        array << right.shift
+    elsif right.empty?
+        array << left.shift
+    else
+        num = left.first <=> right.first
+        if num == -1
+            array << left.shift 
+        elsif num == 1
+            array << right.shift
+        end 
+    end 
+end 
+    array
+end 
 
-# if left[0] < right[0]
-#     a << right[0]
-#     a.unshift(left[0])
-# else
-#     a << left[0]
-#     a.unshift(right[0])
-# end
+array = []
+
+rand(100).times do 
+array << rand(100)
+end 
+
+p merge_sort(array)                  
