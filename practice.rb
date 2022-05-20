@@ -83,6 +83,7 @@ def merge_sort(array)
         left = merge_sort(array[0...mid])
         right = merge_sort(array[mid...array.length])
         merge(left,right)
+    end 
 end
 
 def merge(left, right, array=[])
@@ -110,4 +111,4 @@ array = [4,3,2,1]
 # array << rand(100)
 # end `
 
-merge_sort(array)                  
+p merge_sort(array)                  
