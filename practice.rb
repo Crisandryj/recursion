@@ -76,34 +76,31 @@ def fibs_rec(n)
 end
 
 def merge_sort(array)
-    if array.length < 2
+    if array.length < 2 
         array
     else
-        mid = array.length / 2 
+        mid = array.length/2
         left = merge_sort(array[0...mid])
         right = merge_sort(array[mid...array.length])
-        p left
-        p right
-        merge(left, right)
-    end 
+        merge(left,right)
 end
 
 def merge(left, right, array=[])
     (left.length + right.length).times do
-        if left.empty?
+        if left.empty? 
             array << right.shift
-        elsif right.empty?
+        elsif right.empty? 
             array << left.shift
         else
             num = left <=> right
             if num == -1
                 array << left.shift
-            else num == 1
+            else
                 array << right.shift
             end 
-        end
-    end  
-    p array
+        end  
+    end 
+    array
 end 
 
 
