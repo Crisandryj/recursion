@@ -54,26 +54,26 @@
 #     1 => "I"
 #   }
 
-# def fibs(n)
-#   array = [0, 1]
-#   array.each_with_index do |num, index|
-#     array << (num + array[index + 1]) if index < n - 2
-#   end
-#   p array
-# end
+def fibs(n)
+  array = [0, 1]
+  array.each_with_index do |num, index|
+    array << (num + array[index + 1]) if index < n - 2
+  end
+  p array
+end
 
-# def fibs_rec(n)
-#   if n == 0
-#     return [0]
-#   elsif n == 1
-#     return [0, 1]
-#   else
-#     array = fibs_rec(n - 1)
-#     array << array[n - 1] + array[n - 2]
-#   end
+def fibs_rec(n)
+  if n == 0
+    return [0]
+  elsif n == 1
+    return [0, 1]
+  else
+    array = fibs_rec(n - 1)
+    array << array[n - 1] + array[n - 2]
+  end
 
-#   array
-# end
+  array
+end
 
 def merge_sort(array)
     if array.length < 2
