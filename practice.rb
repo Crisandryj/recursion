@@ -107,8 +107,6 @@ end
 
 array = [4,3,2,1]
 
-# `rand(100).times do 
-# array << rand(100)
-# end `
+
 
 p merge_sort(array)                  
